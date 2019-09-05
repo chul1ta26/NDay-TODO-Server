@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+import java.util.Optional;
 
 @Service
 public class TodoListService {
@@ -19,13 +19,18 @@ public class TodoListService {
     }
 
     public List<TodoListEntity> getTodoLists() {
+
         return todoListRepository.findAll();
     }
 
-    public TodoListEntity getTodoListsById( Long id){
-        return todoListRepository.findById(id);
+    public TodoListEntity getTodoListsById(Long id) {
+        Optional<TodoListEntity> entityOptional = todoListRepository.findById(id);
+
+        if(entityOptional.isPresent()){
+            return entityOptional.get();
+        } else {
+            // todo throw exception here. handle it in the controller.
+            return null;
+        }
     }
-
-
-
 }

@@ -26,20 +26,20 @@ public class TodoListController {
         return todoListService.getTodoLists();
     }
 
-    @GetMapping("api/todolist{id}")
-    public ResponseEntity<TodoListEntity>getToDoList(@PathVariable Long id){
+    @GetMapping("/{id}")
+    public  ResponseEntity<TodoListEntity> getToDoList(@PathVariable Long id){
         return new ResponseEntity<>(todoListService.getTodoListsById(id), HttpStatus.OK);
     }
 
-    @DeleteMapping("/api/todolist/{id}")
-    public ResponseEntity<Boolean> deleteToDoList(@PathVariable Long id){
-        return new ResponseEntity<>(todoListService.deleteToDoList(id),HttpStatus.OK);
-    }
-
-    @PostMapping("api/todolist/{id}")
-    public ResponseEntity<TodoListEntity> updateToDolist( @PathVariable Long id){
-        return new ResponseEntity<>(todoListService.update(id), HttpStatus.OK);
-    }
+//    @DeleteMapping("/api/todolist/{id}")
+//    public ResponseEntity<Boolean> deleteToDoList(@PathVariable Long id){
+//        return new ResponseEntity<>(todoListService.deleteToDoList(id),HttpStatus.OK);
+//    }
+//
+//    @PostMapping("api/todolist/{id}")
+//    public ResponseEntity<TodoListEntity> updateToDolist( @PathVariable Long id){
+//        return new ResponseEntity<>(todoListService.update(id), HttpStatus.OK);
+//    }
 }
 
 
