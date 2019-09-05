@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
 @Service
 public class TodoListService {
 
@@ -18,7 +19,13 @@ public class TodoListService {
     }
 
     public List<TodoListEntity> getTodoLists() {
-
         return todoListRepository.findAll();
     }
+
+    public TodoListEntity getTodoListsById( Long id){
+        return todoListRepository.findById(id);
+    }
+
+
+
 }
