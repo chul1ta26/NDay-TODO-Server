@@ -27,7 +27,8 @@ public class TodoListController {
     }
 
     @GetMapping("/{id}")
-    public  ResponseEntity<TodoListEntity> getToDoList(@PathVariable Long id){
+    public  ResponseEntity<TodoListEntity> getToDoList(@PathVariable Long id)  {
+
         return new ResponseEntity<>(todoListService.getTodoListsById(id), HttpStatus.OK);
     }
 

@@ -5,6 +5,7 @@ import com.nury.ndaytodo.repositories.TodoListRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,11 +27,12 @@ public class TodoListService {
     public TodoListEntity getTodoListsById(Long id) {
         Optional<TodoListEntity> entityOptional = todoListRepository.findById(id);
 
+
         if(entityOptional.isPresent()){
             return entityOptional.get();
         } else {
-            // todo throw exception here. handle it in the controller.
-            return null;
+            throw new EntityNotFoundException("Id not found");
+
         }
     }
 }
