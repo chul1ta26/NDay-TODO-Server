@@ -31,16 +31,17 @@ public class TodoListController {
 
         return new ResponseEntity<>(todoListService.getTodoListsById(id), HttpStatus.OK);
     }
+    @PostMapping("/{id}")
+    public ResponseEntity<TodoListEntity> updateToDolist(@RequestBody TodoListEntity todoListEntity){
+        return new ResponseEntity<>(todoListService.update(todoListEntity), HttpStatus.OK);
+    }
 
     @DeleteMapping("/{id}")
     public void deleteToDoList(@PathVariable Long id){
         todoListService.deleteToDoList(id);
     }
 
-    @PostMapping("/{id}")
-    public ResponseEntity<TodoListEntity> updateToDolist(@RequestBody TodoListEntity todoListEntity){
-        return new ResponseEntity<>(todoListService.update(todoListEntity), HttpStatus.OK);
-    }
+
 }
 
 
