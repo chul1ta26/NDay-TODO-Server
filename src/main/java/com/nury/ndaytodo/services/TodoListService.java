@@ -35,4 +35,11 @@ public class TodoListService {
 
         }
     }
+
+    public void deleteToDoList(Long id) {
+        todoListRepository.deleteById(id);
+        }
+
+
+
 }

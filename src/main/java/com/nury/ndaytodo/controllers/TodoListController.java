@@ -32,10 +32,10 @@ public class TodoListController {
         return new ResponseEntity<>(todoListService.getTodoListsById(id), HttpStatus.OK);
     }
 
-//    @DeleteMapping("/api/todolist/{id}")
-//    public ResponseEntity<Boolean> deleteToDoList(@PathVariable Long id){
-//        return new ResponseEntity<>(todoListService.deleteToDoList(id),HttpStatus.OK);
-//    }
+    @DeleteMapping("/{id}")
+    public void deleteToDoList(@PathVariable Long id){
+        todoListService.deleteToDoList(id);
+    }
 //
 //    @PostMapping("api/todolist/{id}")
 //    public ResponseEntity<TodoListEntity> updateToDolist( @PathVariable Long id){
