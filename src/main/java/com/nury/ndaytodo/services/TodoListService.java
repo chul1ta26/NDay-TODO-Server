@@ -36,6 +36,11 @@ public class TodoListService {
         }
     }
 
+    public TodoListEntity update(TodoListEntity todoListEntity) {
+       return todoListRepository.save(todoListEntity);
+
+        }
+
     public void deleteToDoList(Long id) {
         todoListRepository.deleteById(id);
         }

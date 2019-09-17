@@ -36,11 +36,11 @@ public class TodoListController {
     public void deleteToDoList(@PathVariable Long id){
         todoListService.deleteToDoList(id);
     }
-//
-//    @PostMapping("api/todolist/{id}")
-//    public ResponseEntity<TodoListEntity> updateToDolist( @PathVariable Long id){
-//        return new ResponseEntity<>(todoListService.update(id), HttpStatus.OK);
-//    }
+
+    @PostMapping("/{id}")
+    public ResponseEntity<TodoListEntity> updateToDolist(@RequestBody TodoListEntity todoListEntity){
+        return new ResponseEntity<>(todoListService.update(todoListEntity), HttpStatus.OK);
+    }
 }
 
 
